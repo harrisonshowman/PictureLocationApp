@@ -9,6 +9,7 @@ import Photos
 struct MainView: View {
     var body: some View {
         ZStack {
+            Background()
             TabView {
                 PhotoListView()
                     .tabItem {

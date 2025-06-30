@@ -11,15 +11,20 @@ struct PhotoListView: View {
 
     var body: some View {
         NavigationView {
-            List(photos, id: \.id) { photo in
-                if let image = photo.uiImage {
-                    NavigationLink(destination: PhotoInfoView(photo: photo)) {
-                        Image(uiImage: image)
-                            .resizable()
-                            .aspectRatio(contentMode: .fit)
+            List {
+                ForEach(photos, id: \.id) { photo in
+                    if let image = photo.uiImage {
+                        NavigationLink(destination: PhotoInfoView(photo: photo)) {
+                            Image(uiImage: image)
+                                .resizable()
+                                .aspectRatio(contentMode: .fit)
+                                .frame(height: 60)
+                        }
                     }
                 }
+                .onDelete(perform: deletePhoto)
             }
+            .background(Color.clear)
             .navigationBarTitle("Photos")
             .navigationBarItems(
                 leading: Button("Camera") {
@@ -49,6 +54,14 @@ struct PhotoListView: View {
                     modelContext.insert(newPhoto)
                 }
             }
+        }
+        .background(Color.clear)
+    }
+    
+    private func deletePhoto(at offsets: IndexSet) {
+        for index in offsets {
+            let photo = photos[index]
+            modelContext.delete(photo)
         }
     }
 }
