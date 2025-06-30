@@ -5,6 +5,15 @@
 	<key>UIBackgroundModes</key>
 	<array>
 		<string>remote-notification</string>
+		<string>location</string>
 	</array>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>This app needs access to your location while you are using it.</string>
+	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+	<string>This app needs access to your location even when you are not using it.</string>
+	<key>NSCameraUsageDescription</key>
+	<string>This app needs access to the camera to take photos or record video.</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>This app needs access to your photo library to select and share photos.</string>
 </dict>
 </plist>
