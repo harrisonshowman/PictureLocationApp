@@ -25,7 +25,7 @@ struct ImageInfoView: View {
                             Text(String(format: "Lat: %.4f", lat))
                             Text(String(format: "Lon: %.4f", lon))
                         }
-                    }
+                    }   
                 }
             }
             .navigationTitle("Photo Info List")
