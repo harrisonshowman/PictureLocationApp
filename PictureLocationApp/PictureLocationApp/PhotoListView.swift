@@ -132,13 +132,8 @@ struct PhotoListView: View {
             ZStack {
                 Background()
                 CustomCameraView { image in
-                    guard let image = image else { return }
                     showingCameraPicker = false
-                    let lastLocation = locationManager.lastKnownLocation
-                    let lat = lastLocation?.coordinate.latitude
-                    let lon = lastLocation?.coordinate.longitude
-                    let newPhoto = PhotoItem(image: image, timestamp: Date(), latitude: lat, longitude: lon)
-                    modelContext.insert(newPhoto)
+                    // Optionally: show a confirmation or refresh UI, but do NOT insert the photo here.
                 }
             }
         }

@@ -26,6 +26,9 @@ struct PictureLocationAppApp: App {
     var body: some Scene {
         WindowGroup {
             MainView()
+            .onAppear {
+                LocationManager.shared.requestLocation()
+            }
         }
         .modelContainer(sharedModelContainer)
     }
